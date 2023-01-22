@@ -1,0 +1,77 @@
+
+            
+            
+{% extends "base.html" %}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </head>
+    <body >
+        {% block content %}
+       
+<section class="vh-100% vw-100% bg-image" style="background-color: rgb(255, 255, 255);" >
+    
+        
+   
+    <div class="row pt-4">
+        <div class="col" style="background-color: rgb(212, 217, 221);">
+            Whether you work from home or office or other workplaces, daily grocery items are a requisite for everybody. Regardless of the size of the family or where you live, one can easily browse for the required food or other daily use products and have them brought to your home. Explore the variety of products, whether oils or foodgrains, from the online stock and choose the quantity required. You can save the time otherwise lost in waiting in lengthy queues for billing and payments by easily adding the chosen items to your cart online. Select the required date for delivery and pay with a suitable payment option. This will help you receive the items whenever you need them and in the available quantity. Essentials needed every day, like spices, daals, sugar, coffee powder, salt, etc., can be easily shopped online and delivered to your home. Other items like cleaning liquids, shower gels, fabric softeners, toothpaste, etc., can also be bought online. Buy grocery and more from brands such as Kellogg’s, Tata Gold, Parle G, Lays, etc. Order the online grocery comfortably from home for timely doorstep delivery. You may also place an order for the comfort and convenience of your loved ones who cannot move out of the house and shop. The information you are reading has been last updated on 16-Dec-22.
+        </div>
+    </div>
+    <div class="row pt-3" style="background-image: url('https://images.unsplash.com/photo-1497211419994-14ae40a3c7a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60') ; margin-top: 5%;">
+        <h3>Question and Answers</h3>
+    </div>
+<div class="row pt-4 mt-3 ms-4" >
+    <div class="col">
+        <form action="/{{category}}/" method="POST">
+            {%csrf_token%}
+            <div class="row">
+                <div class="col">
+                    <textarea name="question"  id="" cols="100" rows="2" placeholder="Ask Your Question...." style="background-color:  rgb(255, 255, 255); color: black;" ></textarea>
+                </div>
+                <div class="col mt-3">
+                    <button>post</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+    
+</div>
+
+<div id="question" class="ms-4 mt-4"  >
+    {% for item in question_ans %}
+        <h6>Q : {{item.question}}</h6>
+        <p>A : {{item.answer}}</p>
+    {% endfor %}
+</div>
+
+      
+        
+     
+   
+    
+</section>
+
+{% endblock %}
+        
+        <script src="" async defer></script>
+    </body>
+</html>

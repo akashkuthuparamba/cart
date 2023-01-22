@@ -1,0 +1,49 @@
+{%  extends 'base.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    {% block content %}
+    <body style="background-color: rgb(192, 180, 180);">
+        {% for data in user.details.all %}
+        <div class="row mt-3 p-4 d-flex" style="background-color: white; margin-left: 5%; margin-right: 5%;">
+            
+
+            <div class="col" style="padding-left: 10%;">
+                
+                    <div class="row">
+                        <div class="col">
+                            <h4>{{data.name}}</h4>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p style="color: rgb(152, 145, 145);">{{data.date}}</p>
+                        </div>
+                        
+                    </div>
+                
+            </div>
+            <div class="col pt-3">
+                $ {{data.price}}
+            </div>
+            
+        </div>
+        {% endfor %}
+
+    {% endblock %}    
+        
+        <script src="" async defer></script>
+    </body>
+</html>
